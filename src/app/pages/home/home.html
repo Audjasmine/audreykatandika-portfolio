@@ -1,0 +1,168 @@
+<div class="portfolio-shell">
+  <header class="site-header">
+    <nav class="site-nav">
+      <a class="brand" href="#top">
+        <span class="brand-mark">AK</span>
+        <span class="brand-copy">
+          <strong>Audrey Katandika</strong>
+          <span>Full Stack Developer</span>
+        </span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <button type="button" class="menu-button" (click)="toggleMenu()">Menu</button>
+    </nav>
+
+    <div *ngIf="menuOpen" class="mobile-panel">
+      <a href="#about" (click)="closeMenu()">About</a>
+      <a href="#skills" (click)="closeMenu()">Skills</a>
+      <a href="#experience" (click)="closeMenu()">Experience</a>
+      <a href="#projects" (click)="closeMenu()">Projects</a>
+      <a href="#contact" (click)="closeMenu()">Contact</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Full Stack Developer</p>
+        <h1>Turning business problems into modern software solutions.</h1>
+        <p class="hero-text">
+          Software Engineering graduate with experience in web development, cybersecurity support, APIs, testing and building real-world business solutions..
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">View Projects</a>
+          <a class="button button-secondary" href="/AUDREY-KATANDIKA-CV.pdf" download>Download CV</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel">
+        <img src="/profile.jpeg" alt="Portrait of Audrey Katandika" class="profile-image" />
+
+        <div class="hero-summary">
+          <article>
+            <span>Location</span>
+            <strong>{{ contacts.location }}</strong>
+          </article>
+          <article>
+            <span>Focus</span>
+            <strong>Full stack web development</strong>
+          </article>
+          <article>
+            <span>Stack</span>
+            <strong>Angular, Django, TypeScript, Python</strong>
+          </article>
+        </div>
+      </aside>
+    </section>
+
+    <section id="about" class="section-card about-section">
+      <div class="section-heading">
+        <p class="section-tag">About</p>
+        <h2>Professional, practical, and focused on building complete solutions.</h2>
+      </div>
+
+      <p class="section-text">
+        I am a full stack developer with a background in software engineering and exposure to
+        cybersecurity, testing, and system validation. I enjoy building applications that are
+        clean on the frontend, structured on the backend, and dependable in real use.
+      </p>
+    </section>
+
+    <section id="skills" class="content-section">
+      <div class="section-heading">
+        <p class="section-tag">Skills</p>
+        <h2>Core tools and technologies.</h2>
+      </div>
+
+      <div class="skills-grid">
+        <article *ngFor="let skill of skills" class="skill-chip">{{ skill }}</article>
+      </div>
+    </section>
+
+    <section id="experience" class="content-section">
+      <div class="section-heading">
+        <p class="section-tag">Experience</p>
+        <h2>Roles that shaped my development work.</h2>
+      </div>
+
+      <div class="timeline">
+        <article *ngFor="let experience of experiences" class="timeline-card">
+          <div class="timeline-top">
+            <div>
+              <p class="timeline-company">{{ experience.company }}</p>
+              <h3>{{ experience.role }}</h3>
+            </div>
+            <p class="timeline-period">{{ experience.period }}</p>
+          </div>
+
+          <ul>
+            <li *ngFor="let point of experience.points">{{ point }}</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="content-section">
+      <div class="section-heading">
+        <p class="section-tag">Projects</p>
+        <h2>Selected projects.</h2>
+      </div>
+
+      <div class="projects-grid">
+        <article *ngFor="let project of projects" class="project-card">
+          <h3>{{ project.title }}</h3>
+          <p class="project-description">{{ project.description }}</p>
+
+          <div class="project-tech">
+            <span *ngFor="let item of project.tech">{{ item }}</span>
+          </div>
+
+          <div class="project-links">
+            <a class="text-link" [href]="project.liveLink" target="_blank" rel="noreferrer">Live Demo</a>
+            <a class="text-link" [href]="project.githubLink" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="section-heading">
+        <p class="section-tag">Contact</p>
+        <h2>Let&apos;s connect.</h2>
+      </div>
+
+      <div class="contact-grid">
+        <article class="contact-card">
+          <span>Email</span>
+          <a [href]="'mailto:' + contacts.email">{{ contacts.email }}</a>
+        </article>
+        <article class="contact-card">
+          <span>Phone</span>
+          <a [href]="'tel:' + contacts.phone1">{{ contacts.phone1 }}</a>
+        </article>
+        <article class="contact-card">
+          <span>LinkedIn</span>
+          <a [href]="contacts.linkedin" target="_blank" rel="noreferrer">View Profile</a>
+        </article>
+        <article class="contact-card">
+          <span>GitHub</span>
+          <a [href]="contacts.github" target="_blank" rel="noreferrer">View Projects</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; {{ currentYear }} Audrey Katandika</p>
+    <p>Full Stack Developer</p>
+  </footer>
+</div>
