@@ -14,6 +14,7 @@
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
         <a href="#contact">Contact</a>
       </div>
 
@@ -25,6 +26,7 @@
       <a href="#skills" (click)="closeMenu()">Skills</a>
       <a href="#experience" (click)="closeMenu()">Experience</a>
       <a href="#projects" (click)="closeMenu()">Projects</a>
+      <a href="#education" (click)="closeMenu()">Education</a>
       <a href="#contact" (click)="closeMenu()">Contact</a>
     </div>
   </header>
@@ -35,7 +37,7 @@
         <p class="eyebrow">Full Stack Developer</p>
         <h1>Turning business problems into modern software solutions.</h1>
         <p class="hero-text">
-          Software Engineering graduate with experience in web development, cybersecurity support, APIs, testing and building real-world business solutions..
+          Software Developer who recently graduated with backend development experience in Python and Django, building RESTful APIs and database-driven applications.
         </p>
 
         <div class="hero-actions">
@@ -54,11 +56,11 @@
           </article>
           <article>
             <span>Focus</span>
-            <strong>Full stack web development</strong>
+            <strong>Backend & Full Stack Development</strong>
           </article>
           <article>
             <span>Stack</span>
-            <strong>Angular, Django, TypeScript, Python</strong>
+            <strong>Python, Django, Angular, REST APIs</strong>
           </article>
         </div>
       </aside>
@@ -71,9 +73,7 @@
       </div>
 
       <p class="section-text">
-        I am a full stack developer with a background in software engineering and exposure to
-        cybersecurity, testing, and system validation. I enjoy building applications that are
-        clean on the frontend, structured on the backend, and dependable in real use.
+        Software Developer with backend development experience in Python and Django, building RESTful APIs and database-driven applications. Contributed to event management systems, mentorship platforms and enterprise reporting solutions while applying Agile practices and version control workflows.
       </p>
     </section>
 
@@ -127,8 +127,27 @@
           </div>
 
           <div class="project-links">
-            <a class="text-link" [href]="project.liveLink" target="_blank" rel="noreferrer">Live Demo</a>
-            <a class="text-link" [href]="project.githubLink" target="_blank" rel="noreferrer">GitHub</a>
+            <a *ngIf="project.liveLink" class="text-link" [href]="project.liveLink" target="_blank" rel="noreferrer">Live Demo</a>
+            <a *ngIf="project.githubLink" class="text-link" [href]="project.githubLink" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="education" class="content-section">
+      <div class="section-heading">
+        <p class="section-tag">Education</p>
+        <h2>Academic background.</h2>
+      </div>
+
+      <div class="timeline">
+        <article *ngFor="let edu of educations" class="timeline-card">
+          <div class="timeline-top">
+            <div>
+              <p class="timeline-company">{{ edu.institution }}</p>
+              <h3>{{ edu.credential }}</h3>
+            </div>
+            <p class="timeline-period">{{ edu.period }}</p>
           </div>
         </article>
       </div>
