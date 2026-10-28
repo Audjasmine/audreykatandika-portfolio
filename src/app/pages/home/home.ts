@@ -49,7 +49,7 @@ export class Home {
 
   experiences = [
     {
-      role: 'Software Developer Graduate Trainee',
+      role: 'Software Developer',
       company: 'Tano Digital Solutions, Harare',
       period: 'Jun 2026 - Present',
       points: [
